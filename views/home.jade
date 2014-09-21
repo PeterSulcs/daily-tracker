@@ -1,0 +1,162 @@
+extends layout
+
+block content
+  h1 Daily Tracker
+  p.lead Track stuff for #{today}
+  hr
+  //- form.form-group(method="POST", action="/user")
+  //-   input(type="hidden", name="_method", value="PUT")
+  //-   p Hours of Sleep
+  //-     input.form-control(type="number", name="hoursOfSleep", label="Hours of Sleep")
+  //-   p Flare up
+  //-     input.form-control(type="text", name="flareUp")
+
+  //- form.form-horizontal(action='', method='POST', role='form')
+  //-   .form-group
+  //-     legend Information for Today
+  //-     | 
+  //-   .form-group
+  //-     .col-sm-10.col-sm-offset-2
+  //-       button.btn.btn-primary(type='submit') Submit
+
+
+  form(action="/trackedStuff", method="POST")
+    input(type="hidden", name="_csrf", value=_csrf)
+    input(type="hidden", name="userid", value=user._id)
+    input(type="hidden", name="_id", value=user._id + today)
+    .form-group
+      div.row
+        div.col-md-4
+          div.panel.panel-default
+            div.panel-heading I ate:
+            div.panel-body
+              div.input-group-lg
+                div.checkbox
+                  label
+                    input(type="checkbox", name="soy", value="true", checked=trackedStuff.soy)
+                    | Soy
+                div.checkbox
+                  label
+                    input(type="checkbox", name="gluten", value="true", checked=trackedStuff.gluten)
+                    | Gluten
+                div.checkbox
+                  label
+                    input(type="checkbox", name="othergrains", value="true", checked=trackedStuff.othergrains)
+                    | Other Grains
+                div.checkbox
+                  label
+                    input(type="checkbox", name="legumes", value="true", checked=trackedStuff.legumes)
+                    | Legumes
+                div.checkbox
+                  label
+                    input(type="checkbox", name="corn", value="true", checked=trackedStuff.corn)
+                    | Corn
+                div.checkbox
+                  label
+                    input(type="checkbox", name="seedoil", value="true", checked=trackedStuff.seedoil)
+                    | Seed Oil
+                div.checkbox
+                  label
+                    input(type="checkbox", name="alcohol", value="true", checked=trackedStuff.alcohol)
+                    | Alcohol
+                div.checkbox
+                  label
+                    input(type="checkbox", name="sugar", value="true", checked=trackedStuff.sugar)
+                    | Sugar      
+                div.checkbox
+                  label
+                    input(type="checkbox", name="dairy", value="true", checked=trackedStuff.dairy)
+                    | Dairy
+        div.col-md-4
+          div.panel.panel-default
+            div.panel-heading I ate:
+            div.panel-body
+              div.input-group-lg
+                div.checkbox
+                  label
+                    input(type="checkbox", name="leafygreens", value="true", checked=trackedStuff.leafygreens)
+                    | Leafy Greens
+                div.checkbox
+                  label
+                    input(type="checkbox", name="sulphorousveggies", checked=trackedStuff.sulphorousveggies)
+                    | Sulphorous Veggies
+                div.checkbox
+                  label
+                    input(type="checkbox", name="colors", value="true", checked=trackedStuff.colors)
+                    | Colors
+        div.col-md-4
+          div.panel.panel-default
+            div.panel-heading I did:
+            div.panel-body
+              div.input-group.input-group-lg
+                label
+                  | Hours of sleep
+                  input(class="form-control", type="number", step="0.1", placeholder="Hours of sleep", name="hoursofsleep", value="#{trackedStuff.hoursofsleep}")       
+                div.checkbox
+                  label
+                    input(type="checkbox", name="takeprobiotic", checked=trackedStuff.takeprobiotic)
+                    | Take Probiotic
+                div.checkbox
+                  label
+                    input(type="checkbox", name="takefishoil", value="true", checked=trackedStuff.takefishoil)
+                    | Take fish oil
+                div.checkbox
+                  label
+                    input(type="checkbox", name="taketurmeric", value="true", checked=trackedStuff.taketurmeric)
+                    | Take turmeric
+                div.checkbox
+                  label
+                    input(type="checkbox", name="usedurezol", value="true", checked=trackedStuff.usedurezol)
+                    | Use Durezol 
+                div.checkbox
+                  label
+                    input(type="checkbox", name="warmcompress", value="true", checked=trackedStuff.warmcompress)
+                    | Warm compress
+                div.checkbox
+                  label
+                    input(type="checkbox", name="wearglasses", value="true", checked=trackedStuff.wearglasses)
+                    | Wear glasses
+                div.checkbox
+                  label
+                    input(type="checkbox", name="exercise", value="true", checked=trackedStuff.exercise)
+                    | Exercise     
+                div.checkbox
+                  label
+                    input(type="checkbox", name="walkdogs", value="true", checked=trackedStuff.walkdogs)
+                    | Walk dogs
+      div.panel.panel-default
+        div.panel-heading Other notes:
+        div.panel-body
+          div.input-group-lg
+            textarea(class="form-control", name="additionalcomments", type="text", placeholder="Additional Comments", rows="3")
+              | #{trackedStuff.additionalcomments}
+    button.btn.btn-primary(type='submit') Submit
+
+//- I ate:
+//- Soy
+//- Gluten
+//- Other Grains
+//- Legumes
+//- Corn
+//- Seed Oil
+//- Alcohol
+//- Sugar
+//- Dairy
+
+//- I ate:
+//- Leafy Greens
+//- Sulphurous Veggies
+//- Colors
+
+//- I did:
+//-  # of hours of sleep
+//- Take probiotic
+//- Take fish oil
+//- Take turmeric
+//- Use Durezol
+//- Warm compress
+//- Wear glasses
+//- Exercise
+//- Walk dogs
+
+//- Other Notes:

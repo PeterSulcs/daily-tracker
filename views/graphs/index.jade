@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h2 Graphs
+  h3 Coming soon, raw data shown below
+  hr 
+
+  div.row
+  for doc in stuff
+    div.col-md-4(padding-left="20px", padding-right="20px")
+      div.row
+        h #{doc.forday}
+          //- div.well.well-lg
+          table.table.table-striped.table-responsive
+            thead
+              tr
+                th Key
+                th Value
+            tbody
+              each val, key in doc
+                tr
+                  td=key
+                  td=val
