@@ -2,6 +2,8 @@
 
 The Daily Tracker web app allows a user to track daily activities. This version offers only bare minimum functionality.
 
+Heroku instance: http://daily-tracker-1234.herokuapp.com/
+
 The webapp was created using [Sahat Yalkabov's](https://github.com/sahat) excellent [Node Boiler Plate code](https://github.com/sahat/hackathon-starter)
 
 
