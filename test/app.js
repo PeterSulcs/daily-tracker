@@ -2,10 +2,10 @@ var request = require('supertest');
 var app = require('../app.js');
 
 describe('GET /', function() {
-  it('should return 200 OK', function(done) {
+  it('should return 302 redirect to login', function(done) {
     request(app)
       .get('/')
-      .expect(200, done);
+      .expect(302, done);
   });
 });
 
