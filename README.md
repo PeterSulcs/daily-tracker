@@ -1,4 +1,4 @@
-# daily-tracker [![Build Status](https://api.travis-ci.org/PeterSulcs/daily-tracker.svg?branch=master)](https://api.travis-ci.org/PeterSulcs/daily-tracker)
+# daily-tracker [![Build Status](https://api.travis-ci.org/PeterSulcs/daily-tracker.svg?branch=master)](https://travis-ci.org/PeterSulcs/daily-tracker)
 
 The Daily Tracker web app allows a user to track daily activities. This version offers only bare minimum functionality.
 
