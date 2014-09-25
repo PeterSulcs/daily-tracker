@@ -28,15 +28,18 @@ var TrackedStuff = require('../models/TrackedStuff')
  */
 
 exports.index = function(req, res) {
-  console.log("how do I get the user id here???")
+  // console.log("Is client time anywhere in here?")
   //TODO: Must be logged in first... need to specify this
-  console.log(req.res.locals.user._id)
-  console.log(req.res.locals.user._id + moment().format("YYYY-MM-DD"))
-  TrackedStuff.findById( req.res.locals.user._id + moment().format("YYYY-MM-DD"), function(err, doc) {
+  // console.log(req.res)
+  // console.log(req.res.req._startTime)
+  var client_date = moment(req.res.req._startTime).format("YYYY-MM-DD");
+  // console.log(moment(req.res.req._startTime).format("YYYY-MM-DD"))
+  // console.log(req.res.locals.user._id + client_date)
+  TrackedStuff.findById( req.res.locals.user._id + client_date, function(err, doc) {
       //if (err) return new TrackedStuff({});
       res.render('home', {
         title: 'Home',
-        today: moment().format("YYYY-MM-DD"),
+        today: client_date,
         trackedStuff: doc || new TrackedStuff({})
       });
     });

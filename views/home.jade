@@ -2,7 +2,12 @@ extends layout
 
 block content
   h1 Daily Tracker
-  p.lead Track stuff for #{today}
+  p.lead(id='time') Track stuff for #{today}
+    //- script(type='text/javascript', src="//code.jquery.com/jquery-1.11.0.min.js")
+    //- script(type='text/javascript', src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js")
+    //- script.
+    //-   var today = moment().format("YYYY-MM-DD")
+    //-   $('#time').html("Track stuff for " + today)
   hr
   //- form.form-group(method="POST", action="/user")
   //-   input(type="hidden", name="_method", value="PUT")
