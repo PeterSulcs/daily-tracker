@@ -30,9 +30,12 @@ var TrackedStuff = require('../models/TrackedStuff')
 exports.index = function(req, res) {
   // console.log("Is client time anywhere in here?")
   //TODO: Must be logged in first... need to specify this
-  console.log(req.res)
-  console.log(req.res.req._startTime)
-  var client_date = moment(req.res.req._startTime).format("YYYY-MM-DD");
+  //console.log(req.res)
+  //console.log(req.headers['x-request-start'])
+  console.log(req.headers)
+  console.log(req.headers["x-request-start"])
+  var client_date = moment(req.headers['x-request-start']).format("YYYY-MM-DD");
+  console.log(client_date)
   // console.log(moment(req.res.req._startTime).format("YYYY-MM-DD"))
   console.log(req.res.locals.user._id + client_date)
   TrackedStuff.findById( req.res.locals.user._id + client_date, function(err, doc) {
