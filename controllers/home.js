@@ -1,4 +1,5 @@
 var secrets = require('../config/secrets');
+var momenttz = require('moment-timezone');
 var moment = require('moment');
 var User = require('../models/User');
 
@@ -32,9 +33,13 @@ exports.index = function(req, res) {
   //TODO: Must be logged in first... need to specify this
   //console.log(req.res)
   //console.log(req.headers['x-request-start'])
-  console.log(req.headers)
-  console.log(req.headers["x-request-start"])
-  var client_date = moment(req.headers['x-request-start']).format("YYYY-MM-DD");
+  //console.log(req.headers)
+  //console.log(req.headers["x-request-start"])
+  // Let's just lock to east coast time because I give up for now.
+  var client_date = moment().tz("America/New_York").format("YYYY-MM-DD")
+
+  // console.log(moment().tz("America/New_York"))
+  //moment(req.headers['x-request-start']).format("YYYY-MM-DD");
   console.log(client_date)
   // console.log(moment(req.res.req._startTime).format("YYYY-MM-DD"))
   console.log(req.res.locals.user._id + client_date)
