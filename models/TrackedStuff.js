@@ -4,6 +4,8 @@ var moment = require('moment');
 // var crypto = require('crypto');
 
 var trackedStuffSchema = new mongoose.Schema({
+  // Food
+  // I ate (inflammatory foods):
   soy: {type: Boolean, default:false},
   gluten: {type: Boolean, default:false},
   othergrains: {type: Boolean, default:false},
@@ -14,20 +16,33 @@ var trackedStuffSchema = new mongoose.Schema({
   sugar: {type: Boolean, default:false},
   dairy: {type: Boolean, default:false},
 
-  leafygreens: {type: Boolean, default:false},
+  // I ate (anti-inflammatory foods):
   sulphorousveggies: {type: Boolean, default:false},
+  leafygreens: {type: Boolean, default:false},
   colors: {type: Boolean, default:false},
 
+  // Activities:
   hoursofsleep: Number,
   takeprobiotic: {type: Boolean, default:false},
   takefishoil: {type: Boolean, default:false},
-  taketurmeric: {type: Boolean, default:false},
-  usedurezol: {type: Boolean, default:false},
-  warmcompress: {type: Boolean, default:false},
-  wearglasses: {type: Boolean, default:false},
-  exercise: {type: Boolean, default:false},
-  walkdogs: {type: Boolean, default:false},
+  takeleutein: {type: Boolean, default:false},
+  taketurmeric: {
+    flag: {type: Boolean, default:false},
+    num: {type: int, default:0}
+  },
+  usedurezol: {
+    flag: {type: Booelan, default:false},
+    num: {type: int, default:0}
+  },
 
+  wearglasses: {type: Boolean, default:false},
+  warmcompress: {type: Boolean, default:false},
+  walkdogs: {type: Boolean, default:false},
+  exercise: {
+    flag: {type: Boolean, default:false},
+    intensity: {type: int, default:0},
+    type: {type: String, default:""}
+  },
   additionalcomments: String,
   forday: {type: String, default: moment().format("YYYY-MM-DD")},
   userid: {type: String, default:'unknown'},
