@@ -28,11 +28,11 @@ var trackedStuffSchema = new mongoose.Schema({
   takeleutein: {type: Boolean, default:false},
   taketurmeric: {
     flag: {type: Boolean, default:false},
-    num: {type: int, default:0}
+    num: {type: Number, default:0}
   },
   usedurezol: {
-    flag: {type: Booelan, default:false},
-    num: {type: int, default:0}
+    flag: {type: Boolean, default:false},
+    num: {type: Number, default:0}
   },
 
   wearglasses: {type: Boolean, default:false},
@@ -40,7 +40,7 @@ var trackedStuffSchema = new mongoose.Schema({
   walkdogs: {type: Boolean, default:false},
   exercise: {
     flag: {type: Boolean, default:false},
-    intensity: {type: int, default:0},
+    intensity: {type: Number, default:0},
     type: {type: String, default:""}
   },
   additionalcomments: String,
