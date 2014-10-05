@@ -33,7 +33,7 @@ block content
       div.row
         div.col-md-4
           div.panel.panel-default
-            div.panel-heading I ate:
+            div.panel-heading I ate (inflammatory foods):
             div.panel-body
               div.input-group-lg
                 div.checkbox
@@ -74,24 +74,24 @@ block content
                     | Dairy
         div.col-md-4
           div.panel.panel-default
-            div.panel-heading I ate:
+            div.panel-heading I ate (anti-inflammatory foods):
             div.panel-body
               div.input-group-lg
-                div.checkbox
-                  label
-                    input(type="checkbox", name="leafygreens", value="true", checked=trackedStuff.leafygreens)
-                    | Leafy Greens
                 div.checkbox
                   label
                     input(type="checkbox", name="sulphorousveggies", checked=trackedStuff.sulphorousveggies)
                     | Sulphorous Veggies
                 div.checkbox
                   label
+                    input(type="checkbox", name="leafygreens", value="true", checked=trackedStuff.leafygreens)
+                    | Leafy Greens
+                div.checkbox
+                  label
                     input(type="checkbox", name="colors", value="true", checked=trackedStuff.colors)
                     | Colors
         div.col-md-4
           div.panel.panel-default
-            div.panel-heading I did:
+            div.panel-heading Activities:
             div.panel-body
               div.input-group.input-group-lg
                 label
@@ -107,12 +107,19 @@ block content
                     | Take fish oil
                 div.checkbox
                   label
-                    input(type="checkbox", name="taketurmeric", value="true", checked=trackedStuff.taketurmeric)
+                    input(type="checkbox", name="taketurmeric", value="true", checked=trackedStuff.taketurmeric.flag)
                     | Take turmeric
-                div.checkbox
+                label
+                  | Number of pills
+                  input(class="form-control", type="number", step="1", min="0", placeholder="Number of pills", name="taketurmeric.num", value="#{trackedStuff.taketurmeric.num}")
+                fieldset
+                  div.checkbox
+                    label
+                      input(type="checkbox", name="usedurezol", value="true", checked=trackedStuff.usedurezol.flag)
+                      | Use Durezol 
                   label
-                    input(type="checkbox", name="usedurezol", value="true", checked=trackedStuff.usedurezol)
-                    | Use Durezol 
+                    | Number of drops
+                    input(class="form-control", type="number", step="1", min="0", placeholder="Number of drops", name="usedurezol.num", value="#{trackedStuff.usedurezol.num}")
                 div.checkbox
                   label
                     input(type="checkbox", name="warmcompress", value="true", checked=trackedStuff.warmcompress)
@@ -123,8 +130,10 @@ block content
                     | Wear glasses
                 div.checkbox
                   label
-                    input(type="checkbox", name="exercise", value="true", checked=trackedStuff.exercise)
-                    | Exercise     
+                    input(type="checkbox", name="exercise.flag", value="true", checked=trackedStuff.exercise.flag)
+                    | Exercise
+
+
                 div.checkbox
                   label
                     input(type="checkbox", name="walkdogs", value="true", checked=trackedStuff.walkdogs)
