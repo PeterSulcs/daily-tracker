@@ -30,7 +30,6 @@ var TrackedStuff = require('../models/TrackedStuff')
 
 exports.index = function(req, res) {
   // console.log("Is client time anywhere in here?")
-  //TODO: Must be logged in first... need to specify this
   //console.log(req.res)
   //console.log(req.headers['x-request-start'])
   //console.log(req.headers)

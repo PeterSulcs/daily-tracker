@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Daily Tracker
   p.lead(id='time') Track stuff for #{today}
-    //- script(type='text/javascript', src="//code.jquery.com/jquery-1.11.0.min.js")
+  script(type='text/javascript', src="//code.jquery.com/jquery-1.11.0.min.js")
     //- script(type='text/javascript', src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js")
     //- script.
     //-   var today = moment().format("YYYY-MM-DD")
@@ -105,18 +105,19 @@ block content
                   label
                     input(type="checkbox", name="takefishoil", value="true", checked=trackedStuff.takefishoil)
                     | Take fish oil
+                div.checkbox(style=)
+                  label
+                    input(type="checkbox", name="taketurmeric.flag", id="taketurmeric", value="true", checked=trackedStuff.taketurmeric.flag)
+                    | Take turmeric
+                #turmeric_options
+                  label
+                    | Number of pills
+                    input(class="form-control", type="number", step="1", min="0", placeholder="Number of pills", name="taketurmeric.num", value="#{trackedStuff.taketurmeric.num}")
                 div.checkbox
                   label
-                    input(type="checkbox", name="taketurmeric", value="true", checked=trackedStuff.taketurmeric.flag)
-                    | Take turmeric
-                label
-                  | Number of pills
-                  input(class="form-control", type="number", step="1", min="0", placeholder="Number of pills", name="taketurmeric.num", value="#{trackedStuff.taketurmeric.num}")
-                fieldset
-                  div.checkbox
-                    label
-                      input(type="checkbox", name="usedurezol", value="true", checked=trackedStuff.usedurezol.flag)
-                      | Use Durezol 
+                    input(type="checkbox", name="usedurezol.flag", id="usedurezol", value="true", checked=trackedStuff.usedurezol.flag)
+                    | Use Durezol 
+                #durezol_options
                   label
                     | Number of drops
                     input(class="form-control", type="number", step="1", min="0", placeholder="Number of drops", name="usedurezol.num", value="#{trackedStuff.usedurezol.num}")
@@ -130,10 +131,15 @@ block content
                     | Wear glasses
                 div.checkbox
                   label
-                    input(type="checkbox", name="exercise.flag", value="true", checked=trackedStuff.exercise.flag)
+                    input(type="checkbox", name="exercise.flag", id="exercise", value="true", checked=trackedStuff.exercise.flag)
                     | Exercise
-
-
+                #exercise_options
+                  label
+                    | Type
+                    input(class="form-control", name="exercise.type", placeholder="Type of Exercise", value="#{trackedStuff.exercise.type}")
+                  label
+                    | Intensity
+                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Intensity", name="exercise.intensity", value="#{trackedStuff.exercise.intensity}")
                 div.checkbox
                   label
                     input(type="checkbox", name="walkdogs", value="true", checked=trackedStuff.walkdogs)
@@ -145,6 +151,18 @@ block content
             textarea(class="form-control", name="additionalcomments", type="text", placeholder="Additional Comments", rows="3")
               | #{trackedStuff.additionalcomments}
     button.btn.btn-primary(type='submit') Submit
+
+    script.
+      var local_trackedStuff =!{JSON.stringify(trackedStuff)};
+      if (!local_trackedStuff.taketurmeric.flag) {
+        $('#turmeric_options').hide();
+      };
+      if (!local_trackedStuff.usedurezol.flag) {
+        $('#durezol_options').hide();
+      };
+      if (!local_trackedStuff.exercise.flag) {
+        $('#exercise_options').hide();
+      };
 
 //- I ate:
 //- Soy
