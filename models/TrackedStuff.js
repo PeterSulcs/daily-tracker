@@ -19,15 +19,15 @@ var trackedStuffSchema = new mongoose.Schema({
   // I ate (anti-inflammatory foods):
   sulphorousveggies: {
     flag: {type: Boolean, default:false},
-    num: {type: Number, default:0}
+    num: {type: Number}
   },
   leafygreens: {
     flag: {type: Boolean, default:false},
-    num: {type: Number, default:0}
+    num: {type: Number}
   },
   colors: {
     flag: {type: Boolean, default:false},
-    num: {type: Number, default:0}
+    num: {type: Number}
   },
 
   // Activities:
@@ -37,11 +37,11 @@ var trackedStuffSchema = new mongoose.Schema({
   takeleutein: {type: Boolean, default:false},
   taketurmeric: {
     flag: {type: Boolean, default:false},
-    num: {type: Number, default:0}
+    num: {type: Number}
   },
   usedurezol: {
     flag: {type: Boolean, default:false},
-    num: {type: Number, default:0}
+    num: {type: Number}
   },
 
   wearglasses: {type: Boolean, default:false},
@@ -49,7 +49,7 @@ var trackedStuffSchema = new mongoose.Schema({
   walkdogs: {type: Boolean, default:false},
   exercise: {
     flag: {type: Boolean, default:false},
-    intensity: {type: Number, default:0},
+    intensity: {type: Number, default:5},
     type: {type: String, default:""}
   },
 

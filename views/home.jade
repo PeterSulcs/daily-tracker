@@ -159,7 +159,9 @@ block content
                   div
                     label
                       | Intensity (0-10)
-                    input(type="range", step="1", min="0", max="10", name="exercise.intensity", value="#{trackedStuff.exercise.intensity}")
+                    input(type="range", step="1", min="0", max="10", id="exercise_intensity", name="exercise.intensity", oninput="intensityUpdate(value)", value="#{trackedStuff.exercise.intensity}")
+                    output(for="exercise_intensity", id="intensity_setting")
+                      | #{trackedStuff.exercise.intensity}
                 div.checkbox
                   label
                     input(type="checkbox", name="walkdogs", value="true", checked=trackedStuff.walkdogs)
@@ -208,15 +210,21 @@ block content
                 div
                   label
                     | Sun Light (0-10)
-                  input(type="range", step="1", min="0", max="10", name="sunlight", value="#{trackedStuff.sunlight}")
+                  input(type="range", step="1", min="0", max="10", id="sunlight", name="sunlight", value="#{trackedStuff.sunlight}", oninput="sunlightUpdate(value)", onchange="sunlightUpdate(value)")
+                  output(for="sunlight", id="sunlight_setting")
+                    | #{trackedStuff.sunlight}
                 div
                   label
                     | Blue Light (artificial) (0-10)
-                  input(type="range", step="1", min="0", max="10", name="bluelight", value="#{trackedStuff.bluelight}")        
+                  input(type="range", step="1", min="0", max="10", id="bluelight", name="bluelight", value="#{trackedStuff.bluelight}", oninput="bluelightUpdate(value)", onchange="bluelightUpdate(value)")        
+                  output(for="bluelight", id="bluelight_setting")
+                    | #{trackedStuff.bluelight}
                 div
                   label
                     | Visual Acuity (0-10)
-                  input(type="range", step="1", min="0", max="10", name="visualacuity", value="#{trackedStuff.visualacuity}")
+                  input(type="range", step="1", min="0", max="10", id="visualacuity", name="visualacuity", value="#{trackedStuff.visualacuity}", oninput="visualacuityUpdate(value)", onchange="visualacuityUpdate(value)")
+                  output(for="visualacuity", id="visualacuity_setting")
+                    | #{trackedStuff.visualacuity}
       div.panel.panel-default
         div.panel-heading Other notes:
         div.panel-body
@@ -245,6 +253,22 @@ block content
       };
       if (!local_trackedStuff.colors.flag) {
         $('#colors_options').hide();
+      };
+      
+      function sunlightUpdate(val) {
+        document.querySelector('#sunlight_setting').value = val;
+      };
+
+      function bluelightUpdate(val) {
+        document.querySelector('#bluelight_setting').value = val;
+      };
+
+      function visualacuityUpdate(val) {
+        document.querySelector('#visualacuity_setting').value = val;
+      };
+
+      function intensityUpdate(val) {
+        document.querySelector('#intensity_setting').value = val;
       };
 
       $('#exercise_type').val(local_trackedStuff.exercise.type);
