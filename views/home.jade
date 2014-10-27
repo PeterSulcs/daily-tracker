@@ -146,18 +146,20 @@ block content
                     input(type="checkbox", name="exercise.flag", id="exercise", value="true", checked=trackedStuff.exercise.flag)
                     | Exercise
                 #exercise_options
-                  select(name="exercise.type", id="exercise_type", selected="#{trackedStuff.exercise.type}", label="Type")
-                    option(value="crossfit")
-                      | Crossfit
-                    option(value="running")
-                      | Running
-                    option(value="walking")
-                      | Walking
-                    option(value="other")
-                      | Other
-                  label
-                    | Intensity
-                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Intensity", name="exercise.intensity", value="#{trackedStuff.exercise.intensity}")
+                  div
+                    select(name="exercise.type", id="exercise_type", selected="#{trackedStuff.exercise.type}", label="Type")
+                      option(value="crossfit")
+                        | Crossfit
+                      option(value="running")
+                        | Running
+                      option(value="walking")
+                        | Walking
+                      option(value="other")
+                        | Other
+                  div
+                    label
+                      | Intensity (0-10)
+                    input(type="range", step="1", min="0", max="10", name="exercise.intensity", value="#{trackedStuff.exercise.intensity}")
                 div.checkbox
                   label
                     input(type="checkbox", name="walkdogs", value="true", checked=trackedStuff.walkdogs)
@@ -202,19 +204,19 @@ block content
                 div.checkbox
                   label
                     input(type="checkbox", name="allergies", value="true", checked=trackedStuff.allergies)
-                    | allergies
+                    | Allergies
                 div
                   label
                     | Sun Light (0-10)
-                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Sun Light Exposure", name="sunlight", value="#{trackedStuff.sunlight}")
+                  input(type="range", step="1", min="0", max="10", name="sunlight", value="#{trackedStuff.sunlight}")
                 div
                   label
                     | Blue Light (artificial) (0-10)
-                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Blue Light Exposure", name="bluelight", value="#{trackedStuff.bluelight}")        
+                  input(type="range", step="1", min="0", max="10", name="bluelight", value="#{trackedStuff.bluelight}")        
                 div
                   label
                     | Visual Acuity (0-10)
-                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Visual Acuity", name="visualacuity", value="#{trackedStuff.visualacuity}")
+                  input(type="range", step="1", min="0", max="10", name="visualacuity", value="#{trackedStuff.visualacuity}")
       div.panel.panel-default
         div.panel-heading Other notes:
         div.panel-body
