@@ -17,9 +17,18 @@ var trackedStuffSchema = new mongoose.Schema({
   dairy: {type: Boolean, default:false},
 
   // I ate (anti-inflammatory foods):
-  sulphorousveggies: {type: Boolean, default:false},
-  leafygreens: {type: Boolean, default:false},
-  colors: {type: Boolean, default:false},
+  sulphorousveggies: {
+    flag: {type: Boolean, default:false},
+    num: {type: Number, default:0}
+  },
+  leafygreens: {
+    flag: {type: Boolean, default:false},
+    num: {type: Number, default:0}
+  },
+  colors: {
+    flag: {type: Boolean, default:false},
+    num: {type: Number, default:0}
+  },
 
   // Activities:
   hoursofsleep: Number,
@@ -43,6 +52,23 @@ var trackedStuffSchema = new mongoose.Schema({
     intensity: {type: Number, default:0},
     type: {type: String, default:""}
   },
+
+  // Other
+  // I have these inflammation markers:
+  dryeyes: {type: Boolean, default:false},
+  puffyeyelids: {type: Boolean, default:false},
+  diarrhea: {type: Boolean, default:false},
+  eyegoopies: {type: Boolean, default:false},
+  dryskin: {type: Boolean, default:false},
+  stuffynose: {type: Boolean, default:false},
+  uveitissymptoms: {type: Boolean, default:false},
+  jointpain: {type: Boolean, default:false},
+  allergies: {type: Boolean, default:false},
+
+  sunlight: {type: Number, default:0},
+  bluelight: {type: Number, default:0},
+  visualacuity: {type: Number, default:0},
+
   additionalcomments: String,
   forday: {type: String, default: moment().format("YYYY-MM-DD")},
   userid: {type: String, default:'unknown'},

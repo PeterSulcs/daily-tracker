@@ -33,7 +33,7 @@ block content
       div.row
         div.col-md-4
           div.panel.panel-default
-            div.panel-heading I ate (inflammatory foods):
+            div.panel-heading Inflammatory Foods:
             div.panel-body
               div.input-group-lg
                 div.checkbox
@@ -74,21 +74,33 @@ block content
                     | Dairy
         div.col-md-4
           div.panel.panel-default
-            div.panel-heading I ate (anti-inflammatory foods):
+            div.panel-heading Anti-Inflammatory Foods:
             div.panel-body
               div.input-group-lg
                 div.checkbox
                   label
-                    input(type="checkbox", name="sulphorousveggies", checked=trackedStuff.sulphorousveggies)
+                    input(type="checkbox", name="sulphorousveggies.flag", id="sulphorousveggies", checked=trackedStuff.sulphorousveggies.flag)
                     | Sulphorous Veggies
+                #sulphorous_options
+                  label
+                    | Number of cups
+                    input(class="form-control", type="number", name="sulphorousveggies.num", value="#{trackedStuff.sulphorousveggies.num}")
                 div.checkbox
                   label
-                    input(type="checkbox", name="leafygreens", value="true", checked=trackedStuff.leafygreens)
+                    input(type="checkbox", name="leafygreens.flag", id="leafygreens", value="true", checked=trackedStuff.leafygreens.flag)
                     | Leafy Greens
+                #leafy_options
+                  label
+                    | Number of cups
+                    input(class="form-control", type="number", name="leafygreens.num", value="#{trackedStuff.leafygreens.num}")
                 div.checkbox
                   label
-                    input(type="checkbox", name="colors", value="true", checked=trackedStuff.colors)
+                    input(type="checkbox", name="colors.flag", id="colors", value="true", checked=trackedStuff.colors.flag)
                     | Colors
+                #colors_options
+                  label
+                    | Number of cups
+                    input(class="form-control", type="number", name="colors.num", value="#{trackedStuff.colors.num}")
         div.col-md-4
           div.panel.panel-default
             div.panel-heading Activities:
@@ -105,7 +117,7 @@ block content
                   label
                     input(type="checkbox", name="takefishoil", value="true", checked=trackedStuff.takefishoil)
                     | Take fish oil
-                div.checkbox(style=)
+                div.checkbox
                   label
                     input(type="checkbox", name="taketurmeric.flag", id="taketurmeric", value="true", checked=trackedStuff.taketurmeric.flag)
                     | Take turmeric
@@ -134,9 +146,15 @@ block content
                     input(type="checkbox", name="exercise.flag", id="exercise", value="true", checked=trackedStuff.exercise.flag)
                     | Exercise
                 #exercise_options
-                  label
-                    | Type
-                    input(class="form-control", name="exercise.type", placeholder="Type of Exercise", value="#{trackedStuff.exercise.type}")
+                  select(name="exercise.type", id="exercise_type", selected="#{trackedStuff.exercise.type}", label="Type")
+                    option(value="crossfit")
+                      | Crossfit
+                    option(value="running")
+                      | Running
+                    option(value="walking")
+                      | Walking
+                    option(value="other")
+                      | Other
                   label
                     | Intensity
                     input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Intensity", name="exercise.intensity", value="#{trackedStuff.exercise.intensity}")
@@ -144,6 +162,59 @@ block content
                   label
                     input(type="checkbox", name="walkdogs", value="true", checked=trackedStuff.walkdogs)
                     | Walk dogs
+        div.col-md-4
+          div.panel.panel-default
+            div.panel-heading Inflammation Markers:
+            div.panel-body
+              div.input-group-lg
+                div.checkbox
+                  label
+                    input(type="checkbox", name="dryeyes", value="true", checked=trackedStuff.dryeyes)
+                    | Dry Eyes
+                div.checkbox
+                  label
+                    input(type="checkbox", name="puffyeyelids", value="true", checked=trackedStuff.puffyeyelids)
+                    | Puffy Eyelids
+                div.checkbox
+                  label
+                    input(type="checkbox", name="diarrhea", value="true", checked=trackedStuff.diarrhea)
+                    | Diarrhea or Constipation
+                div.checkbox
+                  label
+                    input(type="checkbox", name="eyegoopies", value="true", checked=trackedStuff.eyegoopies)
+                    | Eye Goopies
+                div.checkbox
+                  label
+                    input(type="checkbox", name="dryskin", value="true", checked=trackedStuff.dryskin)
+                    | Dry Skin
+                div.checkbox
+                  label
+                    input(type="checkbox", name="stuffynose", value="true", checked=trackedStuff.stuffynose)
+                    | Stuffy Nose
+                div.checkbox
+                  label
+                    input(type="checkbox", name="uveitissymptoms", value="true", checked=trackedStuff.uveitissymptoms)
+                    | Uveitis Symptoms
+                div.checkbox
+                  label
+                    input(type="checkbox", name="jointpain", value="true", checked=trackedStuff.jointpain)
+                    | Joint Pain      
+                div.checkbox
+                  label
+                    input(type="checkbox", name="allergies", value="true", checked=trackedStuff.allergies)
+                    | allergies
+                div
+                  label
+                    | Sun Light (0-10)
+                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Sun Light Exposure", name="sunlight", value="#{trackedStuff.sunlight}")
+                div
+                  label
+                    | Blue Light (artificial) (0-10)
+                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Blue Light Exposure", name="bluelight", value="#{trackedStuff.bluelight}")        
+                div
+                  label
+                    | Visual Acuity (0-10)
+                    input(class="form-control", type="number", step="1", min="0", max="10", placeholder="Visual Acuity", name="visualacuity", value="#{trackedStuff.visualacuity}")
       div.panel.panel-default
         div.panel-heading Other notes:
         div.panel-body
@@ -163,6 +234,19 @@ block content
       if (!local_trackedStuff.exercise.flag) {
         $('#exercise_options').hide();
       };
+      if (!local_trackedStuff.sulphorousveggies.flag) {
+        $('#sulphorous_options').hide();
+      };
+
+      if (!local_trackedStuff.leafygreens.flag) {
+        $('#leafy_options').hide();
+      };
+      if (!local_trackedStuff.colors.flag) {
+        $('#colors_options').hide();
+      };
+
+      $('#exercise_type').val(local_trackedStuff.exercise.type);
+
 
 //- I ate:
 //- Soy

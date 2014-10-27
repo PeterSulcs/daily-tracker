@@ -24,4 +24,30 @@ $(document).ready(function() {
   		$('#exercise_options').hide();
   	}
   });
+
+  $('#sulphorousveggies').click(function(){
+  	if ($('#sulphorousveggies').is(':checked')){
+  		$('#sulphorous_options').show();
+  	} else {
+  		$('#sulphorous_options').hide();
+  	}
+  });
+
+  $('#leafygreens').click(function(){
+  	if ($('#leafygreens').is(':checked')){
+  		$('#leafy_options').show();
+  	} else {
+  		$('#leafy_options').hide();
+  	}
+  });
+
+  $('#colors').click(function(){
+  	if ($('#colors').is(':checked')){
+  		$('#colors_options').show();
+  	} else {
+  		$('#colors_options').hide();
+  	}
+  });
+
+
 });
