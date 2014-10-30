@@ -225,6 +225,12 @@ block content
                   input(type="range", step="1", min="0", max="10", id="visualacuity", name="visualacuity", value="#{trackedStuff.visualacuity}", oninput="visualacuityUpdate(value)", onchange="visualacuityUpdate(value)")
                   output(for="visualacuity", id="visualacuity_setting")
                     | #{trackedStuff.visualacuity}
+                div
+                  label
+                    | Stress (0-10)
+                  input(type="range", step="1", min="0", max="10", id="stress", name="stress", value="#{trackedStuff.stress}", oninput="stressUpdate(value)", onchange="stressUpdate(value)")
+                  output(for="stress", id="stress_setting")
+                    | #{trackedStuff.stress}
       div.panel.panel-default
         div.panel-heading Other notes:
         div.panel-body
@@ -269,6 +275,10 @@ block content
 
       function intensityUpdate(val) {
         document.querySelector('#intensity_setting').value = val;
+      };
+
+      function stressUpdate(val) {
+        document.querySelector('#stress_setting').value = val;
       };
 
       $('#exercise_type').val(local_trackedStuff.exercise.type);

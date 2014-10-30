@@ -49,7 +49,7 @@ var trackedStuffSchema = new mongoose.Schema({
   walkdogs: {type: Boolean, default:false},
   exercise: {
     flag: {type: Boolean, default:false},
-    intensity: {type: Number, default:5},
+    intensity: {type: Number},
     type: {type: String, default:""}
   },
 
@@ -65,9 +65,10 @@ var trackedStuffSchema = new mongoose.Schema({
   jointpain: {type: Boolean, default:false},
   allergies: {type: Boolean, default:false},
 
-  sunlight: {type: Number, default:0},
-  bluelight: {type: Number, default:0},
-  visualacuity: {type: Number, default:0},
+  sunlight: {type: Number},
+  bluelight: {type: Number},
+  visualacuity: {type: Number},
+  stress: {type: Number},
 
   additionalcomments: String,
   forday: {type: String, default: moment().format("YYYY-MM-DD")},
